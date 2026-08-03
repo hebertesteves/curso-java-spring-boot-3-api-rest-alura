@@ -43,6 +43,6 @@ public class PacienteController {
     @Transactional
     public void deletarPaciente(@PathVariable Long id) {
         var paciente = pacienteRepository.getReferenceById(id);
-        paciente.excluir();
+        paciente.inativar();
     }
 }
