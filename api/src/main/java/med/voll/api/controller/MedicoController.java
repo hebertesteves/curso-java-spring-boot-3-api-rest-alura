@@ -41,4 +41,11 @@ public class MedicoController {
                 .map(DadosListagemMedico::new)
                 .orElse(null);
     }
+
+    @PutMapping
+    @Transactional
+    public void atualizarMedico(@RequestBody @Valid DadosAtualizacaoMedico dados) {
+        var medico = medicoRepository.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);
+    }
 }
